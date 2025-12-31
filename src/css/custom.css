@@ -4,45 +4,75 @@
  * work well for content-centric websites.
  */
 
+@font-face {
+    font-family: "Aller";
+    src: url("/fonts/Aller_Lt.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Aller";
+    src: url("/fonts/Aller_Bd.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Alternate Gothic";
+    src: url("/fonts/AlternateGotNo2D.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hero__title,
+.hero__subtitle,
+.navbar__title,
+.navbar__link {
+    font-family: "Alternate Gothic", sans-serif;
+    text-transform: uppercase;
+}
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #888;
-  --ifm-color-primary-dark: #666;
-  --ifm-color-primary-darker: #444;
-  --ifm-color-primary-darkest: #222;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-font-family-base: "Aller", sans-serif;
+    --ifm-color-primary: #888;
+    --ifm-color-primary-dark: #666;
+    --ifm-color-primary-darker: #444;
+    --ifm-color-primary-darkest: #222;
+    --ifm-color-primary-light: #33925d;
+    --ifm-color-primary-lighter: #359962;
+    --ifm-color-primary-lightest: #3cad6e;
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #b7c3cf;
-  --ifm-color-primary-dark: #929ba9;
-  --ifm-color-primary-darker: #737c8b;
-  --ifm-color-primary-darkest: #3c4b5c;
-  --ifm-color-primary-light: #c2ccd7;
-  --ifm-color-primary-lighter: #d2dae1;
-  --ifm-color-primary-lightest: #e0e5ea;
-  --ifm-link-color: #929ba9;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+[data-theme="dark"] {
+    --ifm-color-primary: #b7c3cf;
+    --ifm-color-primary-dark: #929ba9;
+    --ifm-color-primary-darker: #737c8b;
+    --ifm-color-primary-darkest: #3c4b5c;
+    --ifm-color-primary-light: #c2ccd7;
+    --ifm-color-primary-lighter: #d2dae1;
+    --ifm-color-primary-lightest: #e0e5ea;
+    --ifm-link-color: #929ba9;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 #intiface-quickstart-app button {
-  margin: 10px;
+    margin: 10px;
 }
 
 .quickstart-image {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items:center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .quickstart-image img {
-  max-width: 80%;
-  padding-top: 20px;
-  padding-bottom: 20px;
+    max-width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

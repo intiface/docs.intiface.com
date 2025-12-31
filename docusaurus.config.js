@@ -1,35 +1,36 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-import { themes } from "prism-react-renderer"
+import { themes } from "prism-react-renderer";
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Intiface Documentation',
-  tagline: 'Documentation for Intiface Central, Game Haptics Router, and other applications.',
-  favicon: 'img/favicon.ico',
+  title: "Intiface Software",
+  tagline:
+    "Because we couldn't call it Buttplug and still get it in app stores",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://docs.intiface.com',
+  url: "https://docs.intiface.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
   plugins: [
-    'docusaurus-plugin-matomo',
+    "docusaurus-plugin-matomo",
     require.resolve("docusaurus-plugin-image-zoom"),
     /*
     [
@@ -46,17 +47,17 @@ const config = {
   ],
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
           showReadingTime: true,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       }),
     ],
@@ -66,115 +67,114 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/intiface-central.png',
+      image: "img/intiface-central.png",
       navbar: {
-        title: 'Intiface Documentation',
+        title: "Intiface Software",
         logo: {
-          alt: 'Intiface Documentation',
-          src: 'img/intiface-central.png',
+          alt: "Intiface Software",
+          src: "img/intiface_logo.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'intifaceCentralSidebar',
-            position: 'left',
-            label: 'Intiface Central',
+            type: "docSidebar",
+            sidebarId: "intifaceCentralSidebar",
+            position: "left",
+            label: "Intiface Central",
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'intifaceGameHapticsRouterSidebar',
-            position: 'left',
-            label: 'Intiface Game Haptics Router',
+            type: "docSidebar",
+            sidebarId: "intifaceGameHapticsRouterSidebar",
+            position: "left",
+            label: "Intiface Game Haptics Router",
           },
           {
-            href: 'https://github.com/intiface/',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/intiface/",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Intiface Central Docs',
-                to: '/docs/intiface-central',
+                label: "Intiface Central Docs",
+                to: "/docs/intiface-central",
               },
               {
-                label: 'Intiface GHR Docs',
-                to: '/docs/intiface-game-haptics-router',
+                label: "Intiface GHR Docs",
+                to: "/docs/intiface-game-haptics-router",
               },
               {
-                label: 'Buttplug.io Developer Docs',
-                to: 'https://docs.buttplug.io',
+                label: "Buttplug.io Developer Docs",
+                to: "https://docs.buttplug.io",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             items: [
               {
-                label: 'Discourse Forum',
-                href: 'https://discuss.buttplug.io',
+                label: "Discourse Forum",
+                href: "https://discuss.buttplug.io",
               },
               {
-                label: 'Discord',
-                href: 'https://discord.buttplug.io',
+                label: "Discord",
+                href: "https://discord.buttplug.io",
               },
             ],
           },
           {
-            title: 'Social',
+            title: "Social",
             items: [
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/buttplugio',
+                label: "Twitter",
+                href: "https://twitter.com/buttplugio",
               },
               {
-                label: 'Mastodon',
-                href: 'https://buttplug.zone/@buttplugio',
+                label: "Mastodon",
+                href: "https://buttplug.zone/@buttplugio",
               },
               {
-                label: 'Bluesky',
-                href: 'https://bsky.app/profile/buttplug.io',
+                label: "Bluesky",
+                href: "https://bsky.app/profile/buttplug.io",
               },
             ],
-          },          
+          },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'Nonpolynomial Blog',
-                to: 'https://nonpolynomial.com/blog',
+                label: "Nonpolynomial Blog",
+                to: "https://nonpolynomial.com/blog",
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/buttplugio',
+                label: "GitHub",
+                href: "https://github.com/buttplugio",
               },
               {
-                label: 'Youtube',
-                href: 'https://youtube.buttplug.io',
+                label: "Youtube",
+                href: "https://youtube.buttplug.io",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Nonpolynomial. Built with Docusaurus.`,        
+        copyright: `Copyright © ${new Date().getFullYear()} Nonpolynomial. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
       matomo: {
-        matomoUrl: 'https://nonpolynomial.matomo.cloud/',
-        siteId: '10',
-        phpLoader: 'matomo.php',
-        jsLoader: 'matomo.js',
+        matomoUrl: "https://nonpolynomial.matomo.cloud/",
+        siteId: "10",
+        phpLoader: "matomo.php",
+        jsLoader: "matomo.js",
       },
-      zoom: {
-      },
+      zoom: {},
     }),
 };
 

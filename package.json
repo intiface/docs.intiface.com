@@ -18,19 +18,19 @@
     "@docusaurus/core": "latest",
     "@docusaurus/plugin-ideal-image": "latest",
     "@docusaurus/preset-classic": "latest",
-    "@mdx-js/react": "^3.0.1",
+    "@mdx-js/react": "^3.1.1",
     "buttplug": "^3.2.2",
-    "clsx": "^2.1.0",
-    "docusaurus-plugin-image-zoom": "^2.0.0",
+    "clsx": "^2.1.1",
+    "docusaurus-plugin-image-zoom": "^3.0.1",
     "docusaurus-plugin-matomo": "^0.0.8",
-    "prism-react-renderer": "^2.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "latest",
     "@docusaurus/types": "latest",
-    "typescript": "^5.4.2"
+    "typescript": "^5.9.3"
   },
   "browserslist": {
     "production": [
