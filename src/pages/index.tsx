@@ -60,11 +60,11 @@ function IntifaceCentralShowcase() {
   ];
 
   const platforms = [
-    { name: "Windows 10+", icon: "W" },
-    { name: "macOS", icon: "M" },
-    { name: "Linux", icon: "L" },
-    { name: "Android", icon: "A" },
-    { name: "iOS", icon: "i" },
+    { name: "Windows 10+", iconClass: "fa-brands fa-windows" },
+    { name: "macOS", iconClass: "fa-brands fa-apple" },
+    { name: "Linux", iconClass: "fa-brands fa-linux" },
+    { name: "Android", iconClass: "fa-brands fa-android" },
+    { name: "iOS", iconClass: "fa-brands fa-app-store-ios" },
   ];
 
   return (
@@ -93,7 +93,7 @@ function IntifaceCentralShowcase() {
           <div className={styles.platformBadges}>
             {platforms.map((platform, idx) => (
               <span key={idx} className={styles.platformBadge}>
-                <span className={styles.platformIcon}>{platform.icon}</span>
+                <i className={`${platform.iconClass} ${styles.platformIcon}`} />
                 {platform.name}
               </span>
             ))}
@@ -115,6 +115,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to={icDownloads?.windows ?? "https://github.com/intiface/intiface-central/releases/latest"}
               >
+                <i className={`fa-brands fa-windows ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Windows</span>
                 <span className={styles.downloadMeta}>.exe</span>
               </Link>
@@ -122,6 +123,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to={icDownloads?.macos ?? "https://github.com/intiface/intiface-central/releases/latest"}
               >
+                <i className={`fa-brands fa-apple ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>macOS</span>
                 <span className={styles.downloadMeta}>.dmg</span>
               </Link>
@@ -129,6 +131,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to={icDownloads?.linux ?? "https://github.com/intiface/intiface-central/releases/latest"}
               >
+                <i className={`fa-brands fa-linux ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Linux</span>
                 <span className={styles.downloadMeta}>.zip</span>
               </Link>
@@ -140,6 +143,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to="https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central"
               >
+                <i className={`fa-brands fa-google-play ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Android</span>
                 <span className={styles.downloadMeta}>Google Play</span>
               </Link>
@@ -147,6 +151,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to="https://apps.apple.com/us/app/intiface-central/id6444728067"
               >
+                <i className={`fa-brands fa-app-store-ios ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>iOS</span>
                 <span className={styles.downloadMeta}>App Store</span>
               </Link>
@@ -154,6 +159,7 @@ function IntifaceCentralShowcase() {
                 className={styles.downloadCard}
                 to={icDownloads?.androidApk ?? "https://github.com/intiface/intiface-central/releases/latest"}
               >
+                <i className={`fa-brands fa-android ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Sideload</span>
                 <span className={styles.downloadMeta}>.apk</span>
               </Link>
@@ -265,22 +271,22 @@ function CommunityLinks() {
     {
       name: "Discord",
       url: "https://discord.buttplug.io",
-      icon: "💬",
+      iconClass: "fa-brands fa-discord",
     },
     {
       name: "Discourse",
       url: "https://discuss.buttplug.io",
-      icon: "📝",
+      iconClass: "fa-brands fa-discourse",
     },
     {
       name: "GitHub",
       url: "https://github.com/buttplugio",
-      icon: "🔧",
+      iconClass: "fa-brands fa-github",
     },
     {
       name: "Bluesky",
       url: "https://bsky.app/profile/buttplug.io",
-      icon: "🦋",
+      iconClass: "fa-brands fa-bluesky",
     },
   ];
 
@@ -291,7 +297,7 @@ function CommunityLinks() {
         <div className={styles.communityLinks}>
           {links.map((link, idx) => (
             <Link key={idx} className={styles.communityLink} to={link.url}>
-              <span className={styles.communityIcon}>{link.icon}</span>
+              <i className={`${link.iconClass} ${styles.communityIcon}`} />
               <span>{link.name}</span>
             </Link>
           ))}

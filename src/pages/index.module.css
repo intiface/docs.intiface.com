@@ -109,16 +109,12 @@
 }
 
 .platformIcon {
-  width: 1.5rem;
-  height: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--ifm-color-primary);
-  color: white;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ifm-color-primary-darker);
+}
+
+[data-theme="dark"] .platformIcon {
+  color: var(--ifm-color-primary-light);
 }
 
 /* Feature List */
@@ -190,6 +186,12 @@
   transform: translateY(-1px);
   text-decoration: none;
   color: var(--ifm-font-color-base);
+}
+
+.downloadIcon {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.125rem;
 }
 
 .downloadPlatform {
@@ -298,7 +300,6 @@
 /* Dark mode: swap to dark backgrounds so white text stays legible */
 [data-theme="dark"] .versionBadge,
 [data-theme="dark"] .versionBadgeSmall,
-[data-theme="dark"] .platformIcon,
 [data-theme="dark"] .stepNumber {
   background: var(--ifm-color-primary-darkest);
   color: var(--ifm-color-primary-lightest);
