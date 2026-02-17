@@ -11,7 +11,7 @@ const config = {
   title: "Intiface Software",
   tagline:
     "Because we couldn't call it Buttplug and still get it in app stores",
-  favicon: "img/favicon.ico",
+  favicon: "img/intiface_central_icon.svg",
 
   // Set the production url of your site here
   url: "https://docs.intiface.com",

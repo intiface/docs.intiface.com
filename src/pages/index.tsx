@@ -19,22 +19,36 @@ function HomepageHeader() {
           <img
             src={logoUrl}
             alt="Intiface Logo"
-            width="200"
-            style={{ marginBottom: "20px" }}
+            className={styles.heroLogo}
           />
         )}
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className={styles.heroTagline}>
+        <p className={styles.heroSubtitle}>
           Applications for accessing and controlling intimate haptics/sensor
-          hardware, built on the Buttplug Framework
+          hardware, built on the{" "}
+          <Link to="https://buttplug.io">Buttplug Framework</Link>.
         </p>
-        <div className={styles.heroCta}>
+        <div className={styles.heroButtons}>
           <a
-            className="button button--secondary button--lg"
+            className="button button--primary button--lg"
             href="#intiface-central"
           >
             Get Intiface Central
           </a>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intiface-central"
+          >
+            Documentation
+          </Link>
+        </div>
+        <div className={styles.infoBox}>
+          <p>
+            Are you a developer looking to integrate hardware into your app?{" "}
+            <Link to="https://docs.buttplug.io">
+              Check the Buttplug Developer Docs.
+            </Link>
+          </p>
         </div>
       </div>
     </header>

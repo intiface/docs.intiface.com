@@ -3,23 +3,158 @@
  * and scoped locally.
  */
 
-/* Hero Section */
+/* ==================== Hero Logo Animation ==================== */
+
+@keyframes heroLogoPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.92; }
+}
+
+/* ==================== Hero Section ==================== */
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(160deg, #3A4552 0%, #4E5E72 35%, #5A6A7E 65%, #48566A 100%);
 }
 
-.heroTagline {
-  font-size: 1.25rem;
-  max-width: 600px;
-  margin: 0 auto 1.5rem;
-  opacity: 0.9;
+/* Soft steel-blue radial glow behind the logo */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 212, 227, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.heroCta {
-  margin-top: 1rem;
+.heroBanner > :global(.container) {
+  position: relative;
+  z-index: 1;
+}
+
+.heroLogo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
+  animation: heroLogoPulse 5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.heroBanner h1 {
+  white-space: nowrap;
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+  font-family: "Alternate Gothic", sans-serif;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  margin-top: 0.75rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-family: "Aller", sans-serif;
+  opacity: 0.92;
+}
+
+.heroSubtitle a {
+  color: #B8D4E3;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.heroSubtitle a:hover {
+  opacity: 0.8;
+}
+
+.heroButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  gap: 0.75rem;
+}
+
+.heroButtons a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.heroButtons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Primary CTA — steel blue, matching the Intiface brand */
+.heroButtons a:global(.button--primary) {
+  background-color: #5A6A7E;
+  border-color: #5A6A7E;
+  color: #ffffff;
+}
+
+.heroButtons a:global(.button--primary):hover {
+  background-color: #4E5E72;
+  border-color: #4E5E72;
+}
+
+/* Secondary CTA — ice blue outline */
+.heroButtons a:global(.button--secondary) {
+  background-color: transparent;
+  border: 2px solid #B8D4E3;
+  color: #B8D4E3;
+}
+
+.heroButtons a:global(.button--secondary):hover {
+  background-color: rgba(184, 212, 227, 0.15);
+  border-color: #B8D4E3;
+  color: #B8D4E3;
+}
+
+/* Info box — translucent dark callout */
+.infoBox {
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.infoBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.infoBox p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.infoBox a {
+  color: #B8D4E3;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.infoBox a:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 996px) {
@@ -27,8 +162,12 @@
     padding: 2rem;
   }
 
-  .heroTagline {
-    font-size: 1.1rem;
+  .heroLogo {
+    max-width: 160px;
+  }
+
+  .heroSubtitle {
+    font-size: 1.05rem;
   }
 }
 
