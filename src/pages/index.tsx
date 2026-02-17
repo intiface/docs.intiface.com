@@ -117,16 +117,16 @@ function IntifaceCentralShowcase() {
               <h4>Mobile</h4>
               <div className={styles.mobileButtons}>
                 <Link
-                  className="button button--primary"
+                  className="button button--primary button--lg"
                   to="https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central"
                 >
-                  Google Play
+                  Google Android
                 </Link>
                 <Link
-                  className="button button--primary"
+                  className="button button--primary button--lg"
                   to="https://apps.apple.com/us/app/intiface-central/id6444728067"
                 >
-                  App Store
+                 Apple iOS
                 </Link>
               </div>
             </div>
