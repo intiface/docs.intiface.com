@@ -146,35 +146,63 @@
   flex-shrink: 0;
 }
 
-/* Download Section */
-.downloadSection {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+/* Download Grid */
+.downloadGrid {
+  max-width: 560px;
+  margin: 0 auto 2rem;
 }
 
-.downloadGroup {
-  text-align: center;
-}
-
-.downloadGroup h4 {
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
+.downloadHeading {
+  font-family: "Alternate Gothic", sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--ifm-color-emphasis-600);
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  margin: 0 0 0.625rem;
+  padding-left: 2px;
 }
 
-.desktopButtons {
+.downloadRow {
   display: flex;
   gap: 0.5rem;
+  margin-bottom: 1.25rem;
 }
 
-.mobileButtons {
+.downloadCard {
+  flex: 1;
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.875rem 0.5rem;
+  border: 1.5px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.downloadCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+.downloadPlatform {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.downloadMeta {
+  font-size: 0.7rem;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  color: var(--ifm-color-emphasis-500);
+  letter-spacing: 0.02em;
 }
 
 .docsLink {
@@ -205,17 +233,12 @@
     font-size: 0.75rem;
   }
 
-  .downloadSection {
-    flex-direction: column;
-    gap: 1.5rem;
+  .downloadRow {
+    flex-wrap: wrap;
   }
 
-  .desktopButtons {
-    flex-direction: column;
-  }
-
-  .mobileButtons {
-    flex-direction: column;
+  .downloadCard {
+    min-width: calc(50% - 0.5rem);
   }
 }
 
@@ -270,6 +293,15 @@
   color: var(--ifm-color-emphasis-700);
   line-height: 1.5;
   margin: 0;
+}
+
+/* Dark mode: swap to dark backgrounds so white text stays legible */
+[data-theme="dark"] .versionBadge,
+[data-theme="dark"] .versionBadgeSmall,
+[data-theme="dark"] .platformIcon,
+[data-theme="dark"] .stepNumber {
+  background: var(--ifm-color-primary-darkest);
+  color: var(--ifm-color-primary-lightest);
 }
 
 @media screen and (max-width: 996px) {

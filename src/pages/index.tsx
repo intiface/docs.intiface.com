@@ -108,52 +108,55 @@ function IntifaceCentralShowcase() {
             ))}
           </div>
 
-          <div className={styles.downloadSection}>
-            <div className={styles.downloadGroup}>
-              <h4>Desktop Downloads</h4>
-              <div className={styles.desktopButtons}>
-                <Link
-                  className="button button--primary button--lg"
-                  to={icDownloads?.windows ?? "https://github.com/intiface/intiface-central/releases/latest"}
-                >
-                  Windows
-                </Link>
-                <Link
-                  className="button button--primary button--lg"
-                  to={icDownloads?.macos ?? "https://github.com/intiface/intiface-central/releases/latest"}
-                >
-                  macOS
-                </Link>
-                <Link
-                  className="button button--primary button--lg"
-                  to={icDownloads?.linux ?? "https://github.com/intiface/intiface-central/releases/latest"}
-                >
-                  Linux
-                </Link>
-              </div>
+          <div className={styles.downloadGrid}>
+            <h4 className={styles.downloadHeading}>Desktop</h4>
+            <div className={styles.downloadRow}>
+              <Link
+                className={styles.downloadCard}
+                to={icDownloads?.windows ?? "https://github.com/intiface/intiface-central/releases/latest"}
+              >
+                <span className={styles.downloadPlatform}>Windows</span>
+                <span className={styles.downloadMeta}>.exe</span>
+              </Link>
+              <Link
+                className={styles.downloadCard}
+                to={icDownloads?.macos ?? "https://github.com/intiface/intiface-central/releases/latest"}
+              >
+                <span className={styles.downloadPlatform}>macOS</span>
+                <span className={styles.downloadMeta}>.dmg</span>
+              </Link>
+              <Link
+                className={styles.downloadCard}
+                to={icDownloads?.linux ?? "https://github.com/intiface/intiface-central/releases/latest"}
+              >
+                <span className={styles.downloadPlatform}>Linux</span>
+                <span className={styles.downloadMeta}>.zip</span>
+              </Link>
             </div>
-            <div className={styles.downloadGroup}>
-              <h4>Mobile Downloads</h4>
-              <div className={styles.mobileButtons}>
-                <Link
-                  className="button button--primary button--lg"
-                  to="https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central"
-                >
-                  Google Android
-                </Link>
-                <Link
-                  className="button button--primary button--lg"
-                  to="https://apps.apple.com/us/app/intiface-central/id6444728067"
-                >
-                 Apple iOS
-                </Link>
-                <Link
-                  className="button button--primary button--lg"
-                  to={icDownloads?.androidApk ?? "https://github.com/intiface/intiface-central/releases/latest"}
-                >
-                  Sideloaded APK
-                </Link>
-              </div>
+
+            <h4 className={styles.downloadHeading}>Mobile</h4>
+            <div className={styles.downloadRow}>
+              <Link
+                className={styles.downloadCard}
+                to="https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central"
+              >
+                <span className={styles.downloadPlatform}>Android</span>
+                <span className={styles.downloadMeta}>Google Play</span>
+              </Link>
+              <Link
+                className={styles.downloadCard}
+                to="https://apps.apple.com/us/app/intiface-central/id6444728067"
+              >
+                <span className={styles.downloadPlatform}>iOS</span>
+                <span className={styles.downloadMeta}>App Store</span>
+              </Link>
+              <Link
+                className={styles.downloadCard}
+                to={icDownloads?.androidApk ?? "https://github.com/intiface/intiface-central/releases/latest"}
+              >
+                <span className={styles.downloadPlatform}>Sideload</span>
+                <span className={styles.downloadMeta}>.apk</span>
+              </Link>
             </div>
           </div>
 
