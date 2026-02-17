@@ -162,14 +162,16 @@ function IntifaceCentralShowcase() {
               </Link>
             </div>
           </div>
-
-          <Link className={styles.docsLink} to="https://github.com/intiface/intiface-central/releases/latest">
-            Downloads @ Github →
-          </Link>
-
-          <Link className={styles.docsLink} to="/docs/intiface-central">
-            View Documentation →
-          </Link>
+          <div>
+            <Link className={styles.docsLink} to="https://github.com/intiface/intiface-central/releases/latest">
+              Download @ Github →
+            </Link>
+          </div>
+          <div>
+            <Link className={styles.docsLink} to="/docs/intiface-central">
+              View Documentation →
+            </Link>
+          </div>
         </div>
       </div>
     </section>
