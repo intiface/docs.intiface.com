@@ -23,105 +23,238 @@ function HomepageHeader() {
           />
         )}
         <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className={styles.heroTagline}>
+          Applications for accessing and controlling intimate haptics/sensor
+          hardware, built on the Buttplug Framework
+        </p>
+        <div className={styles.heroCta}>
+          <a
+            className="button button--secondary button--lg"
+            href="#intiface-central"
+          >
+            Get Intiface Central
+          </a>
+        </div>
       </div>
     </header>
   );
 }
 
-const FeatureList = [
-  {
-    title: "Intiface Central",
-    img: "img/intiface_central_logo.svg",
-    description: (
-      <>
-        <p>
-          Intiface® Central is an open-source, cross-platform application that
-          acts as a hub for intimate haptics/sensor hardware access.
-        </p>
-        <p>
-          It connects to a wide variety of hardware via Bluetooth, USB, Serial,
-          and more, exposing them to applications via the Buttplug Protocol.
-        </p>
-        <p>
-          <strong>Supported Platforms:</strong> Windows 10+, macOS, Linux,
-          Android, iOS.
-        </p>
-      </>
-    ),
-    downloads: [
-      {
-        label: "Desktop (GitHub)",
-        href: "https://github.com/intiface/intiface-central/releases/latest",
-      },
-      {
-        label: "Google Play",
-        href: "https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central",
-      },
-      {
-        label: "App Store",
-        href: "https://apps.apple.com/us/app/intiface-central/id6444728067",
-      },
-    ],
-    docsLink: "/docs/intiface-central",
-  },
-  {
-    title: "Intiface Game Haptics Router",
-    img: "img/intiface_haptics_router_logo.svg",
-    description: (
-      <>
-        <p>
-          The Intiface® Game Haptics Router (GHR) allows users to reroute
-          rumble signals intended for gamepads to control intimate hardware.
-        </p>
-        <p>
-          Turn your favorite video games into immersive haptic experiences,
-          supporting standard and VR titles.
-        </p>
-        <p>
-          <strong>Supported Platforms:</strong> Windows 10+ Only.
-        </p>
-      </>
-    ),
-    downloads: [
-      {
-        label: "Windows (GitHub)",
-        href: "https://github.com/intiface/intiface-game-haptics-router/releases/latest",
-      },
-    ],
-    docsLink: "/docs/intiface-game-haptics-router",
-  },
-];
+function IntifaceCentralShowcase() {
+  const logoUrl = useBaseUrl("img/intiface_central_icon.svg");
 
-function Feature({ title, img, description, downloads, docsLink }) {
-  const imgUrl = useBaseUrl(img);
+  const features = [
+    "Control hardware through the Buttplug Library",
+    "Backward compatibility with older Buttplug apps",
+    "Supports devices that didn't exist when apps were written",
+    "WebSocket connections for app integration",
+  ];
+
+  const platforms = [
+    { name: "Windows 10+", icon: "W" },
+    { name: "macOS", icon: "M" },
+    { name: "Linux", icon: "L" },
+    { name: "Android", icon: "A" },
+    { name: "iOS", icon: "i" },
+  ];
+
   return (
-    <div className={styles.feature}>
-      {imgUrl && (
-        <img src={imgUrl} className={styles.featureImage} alt={title} />
-      )}
-      <div className={styles.featureBody}>
-        <h3>{title}</h3>
-        <div className={styles.featureDescription}>{description}</div>
-        <div className={styles.buttons}>
-          {downloads.map((d, i) => (
-            <Link
-              key={i}
-              className="button button--primary button--lg margin-bottom--sm"
-              to={d.href}
-            >
-              {d.label}
-            </Link>
-          ))}
-          <Link
-            className="button button--secondary button--lg margin-bottom--sm"
-            to={docsLink}
-          >
-            Documentation
+    <section id="intiface-central" className={styles.showcaseSection}>
+      <div className="container">
+        <div className={styles.showcaseContent}>
+          <div className={styles.showcaseHeader}>
+            <img
+              src={logoUrl}
+              alt="Intiface Central"
+              className={styles.showcaseLogo}
+            />
+            <span className={styles.versionBadge}>v3.0.1</span>
+          </div>
+
+          <h2 className={styles.showcaseTitle}>Intiface Central</h2>
+
+          <p className={styles.showcaseDescription}>
+            An open-source, cross-platform application that acts as a hub for
+            intimate haptics/sensor hardware access. Connect to a wide variety
+            of hardware via Bluetooth, USB, Serial, and more.
+          </p>
+
+          <div className={styles.platformBadges}>
+            {platforms.map((platform, idx) => (
+              <span key={idx} className={styles.platformBadge}>
+                <span className={styles.platformIcon}>{platform.icon}</span>
+                {platform.name}
+              </span>
+            ))}
+          </div>
+
+          <div className={styles.featureList}>
+            {features.map((feature, idx) => (
+              <div key={idx} className={styles.featureItem}>
+                <span className={styles.checkmark}>✓</span>
+                {feature}
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.downloadSection}>
+            <div className={styles.downloadGroup}>
+              <h4>Desktop</h4>
+              <Link
+                className="button button--primary button--lg"
+                to="https://github.com/intiface/intiface-central/releases/latest"
+              >
+                Windows / macOS / Linux
+              </Link>
+            </div>
+            <div className={styles.downloadGroup}>
+              <h4>Mobile</h4>
+              <div className={styles.mobileButtons}>
+                <Link
+                  className="button button--primary"
+                  to="https://play.google.com/store/apps/details?id=com.nonpolynomial.intiface_central"
+                >
+                  Google Play
+                </Link>
+                <Link
+                  className="button button--primary"
+                  to="https://apps.apple.com/us/app/intiface-central/id6444728067"
+                >
+                  App Store
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <Link className={styles.docsLink} to="/docs/intiface-central">
+            View Documentation →
           </Link>
         </div>
       </div>
-    </div>
+    </section>
+  );
+}
+
+function HowItWorks() {
+  return (
+    <section className={styles.howItWorksSection}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>How It Works</h2>
+        <div className={styles.stepsContainer}>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>1</div>
+            <h3 className={styles.stepTitle}>Install Intiface Central</h3>
+            <p className={styles.stepDescription}>
+              Download and install on your preferred platform - Windows, macOS,
+              Linux, Android, or iOS.
+            </p>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>2</div>
+            <h3 className={styles.stepTitle}>Follow the Quickstart</h3>
+            <p className={styles.stepDescription}>
+              Our{" "}
+              <Link to="/docs/intiface-central/quickstart">
+                quickstart guide
+              </Link>{" "}
+              walks you through connecting your hardware via Bluetooth, USB, or
+              Serial.
+            </p>
+          </div>
+          <div className={styles.step}>
+            <div className={styles.stepNumber}>3</div>
+            <h3 className={styles.stepTitle}>Use Compatible Apps</h3>
+            <p className={styles.stepDescription}>
+              Launch apps like Game Haptics Router, ScriptPlayer, or Buttplug
+              Playground to control your devices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GameHapticsRouterCard() {
+  const logoUrl = useBaseUrl("img/intiface_haptics_router_logo.svg");
+
+  return (
+    <section className={styles.secondarySection}>
+      <div className="container">
+        <div className={styles.secondaryCard}>
+          <img
+            src={logoUrl}
+            alt="Game Haptics Router"
+            className={styles.secondaryLogo}
+          />
+          <div className={styles.secondaryContent}>
+            <h3>Intiface Game Haptics Router</h3>
+            <p>
+              Reroute gamepad rumble signals to control intimate hardware. Turn
+              your favorite video games into immersive haptic experiences.
+            </p>
+            <p className={styles.platformNote}>
+              Windows 10+ only • Requires Intiface Central
+            </p>
+            <div className={styles.secondaryButtons}>
+              <Link
+                className="button button--primary"
+                to="https://github.com/intiface/intiface-game-haptics-router/releases/latest"
+              >
+                Download
+              </Link>
+              <Link
+                className="button button--secondary"
+                to="/docs/intiface-game-haptics-router"
+              >
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CommunityLinks() {
+  const links = [
+    {
+      name: "Discord",
+      url: "https://discord.buttplug.io",
+      icon: "💬",
+    },
+    {
+      name: "Discourse",
+      url: "https://discuss.buttplug.io",
+      icon: "📝",
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/buttplugio",
+      icon: "🔧",
+    },
+    {
+      name: "Bluesky",
+      url: "https://bsky.app/profile/buttplug.io",
+      icon: "🦋",
+    },
+  ];
+
+  return (
+    <section className={styles.communitySection}>
+      <div className="container">
+        <h2 className={styles.sectionTitle}>Join the Community</h2>
+        <div className={styles.communityLinks}>
+          {links.map((link, idx) => (
+            <Link key={idx} className={styles.communityLink} to={link.url}>
+              <span className={styles.communityIcon}>{link.icon}</span>
+              <span>{link.name}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -134,11 +267,10 @@ export default function Home(): JSX.Element {
     >
       <HomepageHeader />
       <main>
-        <section className={styles.features}>
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </section>
+        <IntifaceCentralShowcase />
+        <HowItWorks />
+        <GameHapticsRouterCard />
+        <CommunityLinks />
       </main>
     </Layout>
   );
