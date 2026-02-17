@@ -88,35 +88,6 @@
   line-height: 1.6;
 }
 
-/* Platform Badges */
-.platformBadges {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.platformBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: var(--ifm-color-emphasis-100);
-  border-radius: 2rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.platformIcon {
-  font-size: 1rem;
-  color: var(--ifm-color-primary-darker);
-}
-
-[data-theme="dark"] .platformIcon {
-  color: var(--ifm-color-primary-light);
-}
-
 /* Feature List */
 .featureList {
   display: flex;
@@ -224,15 +195,6 @@
 
   .showcaseTitle {
     font-size: 1.5rem;
-  }
-
-  .platformBadges {
-    gap: 0.5rem;
-  }
-
-  .platformBadge {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
   }
 
   .downloadRow {
@@ -361,6 +323,24 @@
   font-style: italic;
 }
 
+.ghrDetails {
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+}
+
+.ghrDetails summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.5rem;
+}
+
+.ghrDetails p {
+  margin: 0.25rem 0;
+}
+
 .secondaryButtons {
   display: flex;
   gap: 0.75rem;
@@ -431,76 +411,3 @@
   }
 }
 
-/* Legacy styles - keeping for reference but no longer used */
-.buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.features {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.feature {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem;
-  padding: 2rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-global-radius);
-  box-shadow: var(--ifm-global-shadow-lw);
-  transition: all 0.2s ease-out;
-  width: calc(45% - 2rem);
-  min-width: 300px;
-  text-align: center;
-  background-color: var(--ifm-card-background-color);
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--ifm-global-shadow-md);
-  border-color: var(--ifm-color-primary);
-  text-decoration: none;
-}
-
-.featureImage {
-  height: 200px;
-  width: auto;
-  margin-bottom: 1rem;
-  object-fit: contain;
-}
-
-.featureBody {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.featureBody h3 {
-  margin-bottom: 0.5rem;
-}
-
-.featureDescription {
-  flex-grow: 1;
-  margin-bottom: 1.5rem;
-}
-
-@media screen and (max-width: 996px) {
-  .feature {
-    width: 100%;
-    margin: 1rem 0;
-  }
-}

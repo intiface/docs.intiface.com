@@ -54,17 +54,9 @@ function IntifaceCentralShowcase() {
 
   const features = [
     "Control hardware through the Buttplug Library",
-    "Backward compatibility with older Buttplug apps",
-    "Supports devices that didn't exist when apps were written",
+    "Works with apps built for any Buttplug version (v1+)",
+    "New device support added automatically via library updates",
     "WebSocket connections for app integration",
-  ];
-
-  const platforms = [
-    { name: "Windows 10+", iconClass: "fa-brands fa-windows" },
-    { name: "macOS", iconClass: "fa-brands fa-apple" },
-    { name: "Linux", iconClass: "fa-brands fa-linux" },
-    { name: "Android", iconClass: "fa-brands fa-android" },
-    { name: "iOS", iconClass: "fa-brands fa-app-store-ios" },
   ];
 
   return (
@@ -90,15 +82,6 @@ function IntifaceCentralShowcase() {
             of hardware via Bluetooth, USB, Serial, and more.
           </p>
 
-          <div className={styles.platformBadges}>
-            {platforms.map((platform, idx) => (
-              <span key={idx} className={styles.platformBadge}>
-                <i className={`${platform.iconClass} ${styles.platformIcon}`} />
-                {platform.name}
-              </span>
-            ))}
-          </div>
-
           <div className={styles.featureList}>
             {features.map((feature, idx) => (
               <div key={idx} className={styles.featureItem}>
@@ -117,7 +100,7 @@ function IntifaceCentralShowcase() {
               >
                 <i className={`fa-brands fa-windows ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Windows</span>
-                <span className={styles.downloadMeta}>.exe</span>
+                <span className={styles.downloadMeta}>.exe · 10+</span>
               </Link>
               <Link
                 className={styles.downloadCard}
@@ -133,7 +116,7 @@ function IntifaceCentralShowcase() {
               >
                 <i className={`fa-brands fa-linux ${styles.downloadIcon}`} />
                 <span className={styles.downloadPlatform}>Linux</span>
-                <span className={styles.downloadMeta}>.zip</span>
+                <span className={styles.downloadMeta}>.zip · Ubuntu 22/24</span>
               </Link>
             </div>
 
@@ -206,7 +189,11 @@ function HowItWorks() {
             <h3 className={styles.stepTitle}>Use Compatible Apps</h3>
             <p className={styles.stepDescription}>
               Launch apps like Game Haptics Router, ScriptPlayer, or Buttplug
-              Playground to control your devices.
+              Playground to control your devices. See the full{" "}
+              <Link to="https://awesome.buttplug.io">
+                apps &amp; games list
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -240,11 +227,31 @@ function GameHapticsRouterCard() {
             </h3>
             <p>
               Reroute gamepad rumble signals to control intimate hardware. Turn
-              your favorite video games into immersive haptic experiences.
+              your favorite video games into immersive haptic experiences,
+              including online multi-player interaction.
             </p>
             <p className={styles.platformNote}>
-              Windows 10+ only • Requires Intiface Central
+              Windows 10+ only • Requires Intiface Central • Games must use
+              XInput or UWP Gamepad APIs (look for "Xbox Gamepad Compatible")
             </p>
+            <details className={styles.ghrDetails}>
+              <summary>Supported hardware &amp; known limitations</summary>
+              <p>
+                <strong>Works with:</strong> Vibrating devices (including all
+                Lovense toys), rotating hardware (Vorze Cyclone/UFO, Lovense
+                Nora).
+              </p>
+              <p>
+                <strong>Not compatible with:</strong> Games using anti-cheat
+                systems, VR games, keyboard/mouse-only input. Kiiroo Keon and
+                The Handy are not yet supported.
+              </p>
+              <p>
+                <Link to="https://discuss.buttplug.io/t/intiface-game-haptics-router-ghr-rumble-mod-game-support-list/229">
+                  View the full game compatibility list →
+                </Link>
+              </p>
+            </details>
             <div className={styles.secondaryButtons}>
               <Link
                 className="button button--primary"
@@ -287,6 +294,16 @@ function CommunityLinks() {
       name: "Bluesky",
       url: "https://bsky.app/profile/buttplug.io",
       iconClass: "fa-brands fa-bluesky",
+    },
+    {
+      name: "YouTube",
+      url: "https://youtube.buttplug.io",
+      iconClass: "fa-brands fa-youtube",
+    },
+    {
+      name: "Patreon",
+      url: "https://patreon.com/qdot",
+      iconClass: "fa-brands fa-patreon",
     },
   ];
 
