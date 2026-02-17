@@ -43,9 +43,14 @@ function HomepageHeader() {
 
 function IntifaceCentralShowcase() {
   const logoUrl = useBaseUrl("img/intiface_central_icon.svg");
-  const { intifaceCentral: icVersion } = usePluginData("github-versions") as {
-    intifaceCentral?: string;
+  const { versions, downloads } = usePluginData("github-versions") as {
+    versions?: { intifaceCentral?: string };
+    downloads?: {
+      intifaceCentral?: { windows?: string; macos?: string; linux?: string; androidApk?: string };
+    };
   };
+  const icVersion = versions?.intifaceCentral;
+  const icDownloads = downloads?.intifaceCentral;
 
   const features = [
     "Control hardware through the Buttplug Library",
@@ -105,16 +110,30 @@ function IntifaceCentralShowcase() {
 
           <div className={styles.downloadSection}>
             <div className={styles.downloadGroup}>
-              <h4>Desktop</h4>
-              <Link
-                className="button button--primary button--lg"
-                to="https://github.com/intiface/intiface-central/releases/latest"
-              >
-                Windows / macOS / Linux
-              </Link>
+              <h4>Desktop Downloads</h4>
+              <div className={styles.desktopButtons}>
+                <Link
+                  className="button button--primary button--lg"
+                  to={icDownloads?.windows ?? "https://github.com/intiface/intiface-central/releases/latest"}
+                >
+                  Windows
+                </Link>
+                <Link
+                  className="button button--primary button--lg"
+                  to={icDownloads?.macos ?? "https://github.com/intiface/intiface-central/releases/latest"}
+                >
+                  macOS
+                </Link>
+                <Link
+                  className="button button--primary button--lg"
+                  to={icDownloads?.linux ?? "https://github.com/intiface/intiface-central/releases/latest"}
+                >
+                  Linux
+                </Link>
+              </div>
             </div>
             <div className={styles.downloadGroup}>
-              <h4>Mobile</h4>
+              <h4>Mobile Downloads</h4>
               <div className={styles.mobileButtons}>
                 <Link
                   className="button button--primary button--lg"
@@ -127,6 +146,12 @@ function IntifaceCentralShowcase() {
                   to="https://apps.apple.com/us/app/intiface-central/id6444728067"
                 >
                  Apple iOS
+                </Link>
+                <Link
+                  className="button button--primary button--lg"
+                  to={icDownloads?.androidApk ?? "https://github.com/intiface/intiface-central/releases/latest"}
+                >
+                  Sideloaded APK
                 </Link>
               </div>
             </div>
@@ -183,9 +208,10 @@ function HowItWorks() {
 
 function GameHapticsRouterCard() {
   const logoUrl = useBaseUrl("img/intiface_haptics_router_logo.svg");
-  const { gameHapticsRouter: ghrVersion } = usePluginData(
-    "github-versions"
-  ) as { gameHapticsRouter?: string };
+  const { versions } = usePluginData("github-versions") as {
+    versions?: { gameHapticsRouter?: string };
+  };
+  const ghrVersion = versions?.gameHapticsRouter;
 
   return (
     <section className={styles.secondarySection}>

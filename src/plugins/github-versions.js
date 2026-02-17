@@ -3,6 +3,17 @@ const REPOS = {
   gameHapticsRouter: "intiface/intiface-game-haptics-router",
 };
 
+const IC_DOWNLOAD_TEMPLATES = {
+  windows: (repo, tag) =>
+    `https://github.com/${repo}/releases/download/${tag}/intiface-central-${tag}-win-x64.exe`,
+  macos: (repo, tag) =>
+    `https://github.com/${repo}/releases/download/${tag}/intiface-central-${tag}-macos-universal.dmg`,
+  linux: (repo, tag) =>
+    `https://github.com/${repo}/releases/download/${tag}/intiface-central_${tag}-linux-ubuntu-24.04-x64.zip`,
+  androidApk: (repo, tag) =>
+    `https://github.com/${repo}/releases/download/${tag}/intiface-central-${tag}-android-arm-universal.apk`,
+};
+
 /** Strip semver build metadata (everything after +) from a tag. */
 function cleanTag(tag) {
   return tag.replace(/\+.*$/, "");
@@ -22,6 +33,14 @@ async function fetchLatestTag(repo) {
   return cleanTag(data.tag_name);
 }
 
+function buildDownloadUrls(repo, tag) {
+  const urls = {};
+  for (const [platform, template] of Object.entries(IC_DOWNLOAD_TEMPLATES)) {
+    urls[platform] = template(repo, tag);
+  }
+  return urls;
+}
+
 module.exports = function githubVersionsPlugin() {
   return {
     name: "github-versions",
@@ -30,22 +49,25 @@ module.exports = function githubVersionsPlugin() {
       const results = await Promise.allSettled(
         Object.entries(REPOS).map(async ([key, repo]) => {
           const tag = await fetchLatestTag(repo);
-          return [key, tag];
+          return [key, { tag, repo }];
         })
       );
 
-      const versions = {};
+      const data = { versions: {}, downloads: {} };
       for (const result of results) {
         if (result.status === "fulfilled") {
-          const [key, tag] = result.value;
-          versions[key] = tag;
+          const [key, { tag, repo }] = result.value;
+          data.versions[key] = tag;
+          if (key === "intifaceCentral") {
+            data.downloads.intifaceCentral = buildDownloadUrls(repo, tag);
+          }
         } else {
           console.warn(
             `[github-versions] ${result.reason.message}`
           );
         }
       }
-      return versions;
+      return data;
     },
 
     async contentLoaded({ content, actions }) {

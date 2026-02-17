@@ -167,6 +167,11 @@
   color: var(--ifm-color-emphasis-600);
 }
 
+.desktopButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .mobileButtons {
   display: flex;
   gap: 0.5rem;
@@ -203,6 +208,10 @@
   .downloadSection {
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .desktopButtons {
+    flex-direction: column;
   }
 
   .mobileButtons {
