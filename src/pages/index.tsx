@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import { usePluginData } from "@docusaurus/useGlobalData";
 import Layout from "@theme/Layout";
 
 import styles from "./index.module.css";
@@ -42,6 +43,9 @@ function HomepageHeader() {
 
 function IntifaceCentralShowcase() {
   const logoUrl = useBaseUrl("img/intiface_central_icon.svg");
+  const { intifaceCentral: icVersion } = usePluginData("github-versions") as {
+    intifaceCentral?: string;
+  };
 
   const features = [
     "Control hardware through the Buttplug Library",
@@ -68,7 +72,9 @@ function IntifaceCentralShowcase() {
               alt="Intiface Central"
               className={styles.showcaseLogo}
             />
-            <span className={styles.versionBadge}>v3.0.1</span>
+            {icVersion && (
+              <span className={styles.versionBadge}>{icVersion}</span>
+            )}
           </div>
 
           <h2 className={styles.showcaseTitle}>Intiface Central</h2>
@@ -177,6 +183,9 @@ function HowItWorks() {
 
 function GameHapticsRouterCard() {
   const logoUrl = useBaseUrl("img/intiface_haptics_router_logo.svg");
+  const { gameHapticsRouter: ghrVersion } = usePluginData(
+    "github-versions"
+  ) as { gameHapticsRouter?: string };
 
   return (
     <section className={styles.secondarySection}>
@@ -188,7 +197,12 @@ function GameHapticsRouterCard() {
             className={styles.secondaryLogo}
           />
           <div className={styles.secondaryContent}>
-            <h3>Intiface Game Haptics Router</h3>
+            <h3>
+              Intiface Game Haptics Router{" "}
+              {ghrVersion && (
+                <span className={styles.versionBadgeSmall}>{ghrVersion}</span>
+              )}
+            </h3>
             <p>
               Reroute gamepad rumble signals to control intimate hardware. Turn
               your favorite video games into immersive haptic experiences.

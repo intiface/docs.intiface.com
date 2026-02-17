@@ -66,6 +66,16 @@
   font-weight: 600;
 }
 
+.versionBadgeSmall {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
 .showcaseTitle {
   font-size: 2rem;
   margin-bottom: 1rem;

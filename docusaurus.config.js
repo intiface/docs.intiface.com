@@ -32,6 +32,7 @@ const config = {
   plugins: [
     "docusaurus-plugin-matomo",
     require.resolve("docusaurus-plugin-image-zoom"),
+    require.resolve("./src/plugins/github-versions"),
     /*
     [
       '@docusaurus/plugin-ideal-image',
