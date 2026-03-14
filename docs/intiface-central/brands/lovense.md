@@ -8,9 +8,11 @@ The only answer at this point is Bluetooth Dongle or Your Phone Also Running Int
 
 :::warning What happened to Lovense Connect support?
 
-If you'd seen this page in the past, you know that about half of it was dedicated to troubleshooting Lovense Connect. Lovense Connect's protocols varying between mobile platforms and are undocumented. 
+If you'd seen this page in the past, you know that about half of it was dedicated to troubleshooting Lovense Connect. The way we talk to Lovense Connect requires varying between mobile platforms, the whole is undocumented, and it barely ever worked.
 
-Early on in our platform, before we had a mobile app, we supported Lovense Connect as a way for people to get to their devices on their phones. However, this was an exception to our rule of depending on manufacturer's services to access a toy, and it has bitten us several times at this point. We don't have the resources to continue reverse engineering and supporting this, especially when our own app access seems to work much better, even if it is still not the easiest to set up at the moment.
+Early on in our platform, before we had a mobile app, we supported Lovense Connect as a way for people to get to their devices on their phones. However, this was an exception to our rule of depending on manufacturer's services to access hardware, and it has bitten us several times at this point. We don't have the resources to continue reverse engineering and supporting this, especially when our own app access seems to work much better, even if it is still not the easiest to set up at the moment.
+
+We have Intiface Central on mobile now, and it can do everything Lovense Connect can, though at the moment with a slightly less polished UI flow. We're working on that part, but our support load has exploded on the Connect side in the past couple of months, so it's either spent a ton of time supporting software that's not ours or rip the bandaid off and try to improve.
 
 :::
 
