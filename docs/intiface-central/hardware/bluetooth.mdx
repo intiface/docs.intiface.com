@@ -7,7 +7,8 @@ import { DocImage } from '@site/src/components/DocImage';
 You will need a Bluetooth 4 adapter of some kind. For Windows 10 and Linux desktops, we usually
 recommend the following adapter (Amazon links below, availability may differ in other countries):
 
-[TP-Link UB400](https://www.amazon.com/TP-Link-Bluetooth-Receiver-Controllers-UB400/dp/B07V1SZCY6/)
+- [TP-Link UB500](https://www.amazon.com/TP-Link-Bluetooth-Receiver-Controller-UB500/dp/B09DMP6T22)
+- [Asus BT500](https://www.amazon.com/ASUS-USB-BT500-Bluetooth-Backward-Compatible/dp/B08DFBNG7F)
 
 This specific adapter is what our developers use to test the library. That said, most Bluetooth 4
 dongles should work fine for most toys.
@@ -19,7 +20,6 @@ chipset:
   Germany)](https://www.amazon.de/Techkey-Bluetooth-Computer-Skype-Anruf-unterst%C3%BCtzt/dp/B07QL7C6WG)
 - [Onvian Bluetooth Adapter USB CSR 4.0 Dongle Receiver (Amazon
   Australia)](https://www.amazon.com.au/Onvian-Bluetooth-Receiver-Transfer-Wireless/dp/B077Z27FTS)
-
 
 However, **some toys from [WeVibe](/docs/intiface-central/brands/wevibe) and
 [Satisfyer](/docs/intiface-central/brands/satisfyer)** require dongles with a specific brand of
@@ -38,13 +38,13 @@ many issues with the drivers that come with on-board Bluetooth radios not workin
 If you are using a system with an on-board radio and are having issues, we recommend buying the
 dongle listed above.
 
-## Can I use a Bluetooth 5 dongle?
+## Can I use a Bluetooth 5/6 dongle?
 
-Bluetooth 5 dongles and radios support varies across platforms, so it's hard to say at the moment.
-While some may work on some platforms, they're new enough that we cannot confirm they will work for
-everyone, and they have been observed to sometimes cause intermittent scanning and connection
-problems (mostly on Windows 10). While we usually recommend BT4 dongles, if all you have available
-is a BT5 dongle, you can definitely try it.
+At this point, Bluetooth 5 dongles seem to work well enough with Intiface Central on Windows/Linux,
+especially the ones we recommend above. Note that off-brand dongles that require their own drivers
+may still be an issue.
+
+Bluetooth 6 is now the new one, and we have not done much testing.
 
 ## Is there any way I can improve my Bluetooth connection?
 
@@ -61,18 +61,18 @@ In the end, remember: Radios are black magic, and there's only so much anyone ca
 
 ## When should I pair my device with my operating system?
 
-You should **NOT NEED TO PAIR** your device with your operating system, unless specifically called out in a hardware brand page on the FAQ (for instance, [WeVibe](/docs/intiface-central/brands/wevibe) or [Satisfyer](/docs/intiface-central/brands/satisfyer)). Most Bluetooth LE connections are handled by Buttplug and do not require pairing.
+You should **NOT NEED TO PAIR** your device with your operating system, unless specifically called
+out in a hardware brand page on the FAQ (for instance,
+[WeVibe](/docs/intiface-central/brands/wevibe) or
+[Satisfyer](/docs/intiface-central/brands/satisfyer)). Most Bluetooth LE connections are handled by
+Buttplug and do not require pairing.
 
 ## Can I use my phone as a Bluetooth device relay?
 
-This is a possibility, but it depends on whether or not the application and hardware you're working
-with support mobile platforms. Intiface Central is now available on both Android and iOS, but app
-functionality may be limited depending on how things work (i.e. web apps on iOS Safari may not
-connect to iOS Intiface Central).
-
-Some toys, like Lovense, have special apps (like Lovense Connect) that allow users to use their
-phone as the Bluetooth connection. If Buttplug/Intiface support this capability, it will be listed
-here in the brand specific questions section.
+Yes. Intiface Central now has [Repeater Mode](../ui/app-modes-repeater-panel.md), which allows the
+phone to proxy to the Desktop. Otherwise, games/apps may provide ways to change the network address
+of Intiface Central to your phone instead of your desktop/laptop. Refer to the documentation of the
+program you're trying to use for more info.
 
 ## I connected my Bluetooth device to my phone, but my computer can't see it
 
