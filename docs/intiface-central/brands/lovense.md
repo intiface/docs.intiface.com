@@ -1,8 +1,10 @@
 # Lovense
 
-## Should I use a Bluetooth Dongle, a Lovense Dongle, or Lovense Connect?
+## Should I use a Bluetooth Dongle, Intiface Central Repeater, a Lovense Dongle, or Lovense Connect?
 
 The only answer at this point is Bluetooth Dongle or Your Phone Also Running Intiface Central.
+
+**Intiface Central no longer supports the Lovense Dongle or Lovense Connect App.**
 
 :::warning What happened to Lovense Connect support?
 
