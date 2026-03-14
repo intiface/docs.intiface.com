@@ -2,48 +2,59 @@
 
 ## Should I use a Bluetooth Dongle, a Lovense Dongle, or Lovense Connect?
 
-First and foremost: **WHICHEVER ANSWER YOU CHOOSE HERE, ONLY CHOOSE ONE. USING MULTIPLE LOVENSE CONNECTION SOLUTIONS WILL LEAD TO PAIN.**
+The only answer at this point is Bluetooth Dongle or Your Phone Also Running Intiface Central.
+
+:::warning What happened to Lovense Connect support?
+
+If you'd seen this page in the past, you know that about half of it was dedicated to troubleshooting Lovense Connect. Lovense Connect's protocols varying between mobile platforms and are undocumented. 
+
+Early on in our platform, before we had a mobile app, we supported Lovense Connect as a way for people to get to their devices on their phones. However, this was an exception to our rule of depending on manufacturer's services to access a toy, and it has bitten us several times at this point. We don't have the resources to continue reverse engineering and supporting this, especially when our own app access seems to work much better, even if it is still not the easiest to set up at the moment.
+
+:::
+
+:::warning What happened to the Lovense Dongle?
+
+Much like Lovense Connect, we were never supposed to be able to access the Lovense Dongle. We reverse engineered it and put in support for it very, very early in the project (around 2018) as many people were still running on desktop machines without bluetooth access, and much like above, we didn't have a mobile app of our own to use as a bluetooth radio. 
+
+That said, we didn't do a particularly good job of reverse engineering it because it was a nightmare of a protocol, and also extremely slow since it's basically a bluetooth proxy chip. We only ever implemented access for one device when it could support 2 but, once again, nightmare for us to reverse at support.
+
+At this point, Windows 10/11 have decent bluetooth support, and anyone who is on a desktop platform we don't directly support can hop through a phone using Intiface Central mobile, so we've decided to drop support.
+
+:::
 
 ### Bluetooth Dongle
 
 As with most of our toy support, we recommend using a regular Bluetooth LE Dongle with Lovense toys. The specific dongle we recommend is in the [Bluetooth section of this FAQ](../hardware/bluetooth). Bluetooth Dongles are the most reliable and usually least laggy way to access toys.
 
-While the Lovense website says that the Lovense Dongle is required to use for Lovense Toys on desktops, this is only true for applications made by Lovense. Buttplug can use regular Bluetooth 4.0 dongles to communicate with Lovense toys without issues.
+While the Lovense website says that the Lovense Dongle is required to use for Lovense Toys on desktops, this is only true for applications made by Lovense. Buttplug can use regular Bluetooth 4/5 dongles to communicate with Lovense toys (mostly) without issues.
 
-### Lovense Connect
+### Intiface Central Mobile and/or Repeater Mode
 
-Lovense Connect is an app released by Lovense for Cam Models ([iOS](https://apps.apple.com/us/app/lovense-connect/id1273067916), [Android](https://play.google.com/store/apps/details?id=com.lovense.connect&hl=en_US&gl=US)) that _is different from Lovense Remote_. Lovense Connect allows users to connect their toy to their phone, then connect from a laptop/desktop on the same network to the phone, without having to route all commands through a remote server.
+If you don't have a way to access bluetooth on your computer, or can't get it to work, you can also use the Intiface Central mobile app, which is free and available on Google Play Store and Apple App Store. There's two ways you can hook your phone up to games/apps on your desktop with this.
 
-Lovense Connect should be used if:
+#### Direct Access
 
-- You plan on moving around a LOT (like, say in a large VR playspace) and move out of range of your
-  bluetooth radio.
-- You are having problems with your bluetooth dropping out with toys like the hush or edge, and
-  don't want to deal with a bluetooth dongle on a USB extension
+If the game/app allows you to change the network address, you can (sometimes) use the IP Address you see in Intiface Central on your phone to connect to toys.
 
-Lovense Connect tends to be slightly laggier than bluetooth, somewhat on par with the Lovense Dongle, though this can also depend on your WiFi setup. The main problem with Connect is that, if it doesn't work out of the box, debugging may require advanced networking knowledge. If you are having problems with Connect, see the next section.
+![Intiface Central Mobile](./intiface_mobile_server_address.jpg)
 
-### Lovense Dongle
+As shown, you can get the IP address and port of your phone to share with the game/app. If your phone was already working with Lovense Connect, this method should most likely work also.
 
-You should only use a Lovense Dongle if:
+Where you enter this info in the game or app can vary based on the UI. You will need to consult the developer of the software you are trying to use this with to see if this is possible, and if so, how it can be done.
 
-- You are on Windows 7
-- You're waiting on your actual bluetooth dongle to arrive (and if you haven't ordered on, go ahead
-  and do so)
+:::tip Nerd Question: Why don't you support some kind of Autodiscovery like mDNS, or use an external signalling server w/ NAT Punching?
 
-The Lovense Dongle was made by Lovense to provide them with an easy-to-support way of connecting toys to desktops/laptops, without having to deal with specifics of different operating systems. That said, it's just not a great method for connection.
+HAVE YOU EVER WORKED WITH MDNS.
 
-:::info Lovense Dongle Explanation For Nerds
+We're trying, mDNS currently in Intiface Central (hidden behind an experimental/advanced option), but getting it to work across random home networks is a really, truly special kind of nightmare.
 
-The Lovense Dongle is just a Nordic nrf52840 acting as a BLE to UART or HID bridge, depending on which version of the dongle you have. Older Lovense Dongles (earlier than 2018 or so) have a black circuit board which can be seen under the USB connector side, and work as a BLE to UART/Serial converter. Newer Lovense Dongles have a white circuit board and work as a BLE to HID converter.
-
-Due to these dongles relaying over 2 communication mediums and having to run through an extra ARM processor to translate commands, they tend to be slower than just hooking up a regular old Bluetooth LE radio to your computer. This is why they seem laggy. Also, due to the firmware on the nrf52840, only 2 toys can be connected to a Lovense dongle simultaneously (and for Buttplug, we currently only support 1 toy [because qDot doesn't want to deal with fixing it](https://github.com/buttplugio/buttplug/issues/309)).
-
-The reason that Lovense put the dongle out is that both Serial and HID are handled by operating systems in fairly standard ways, meaning the same code for the dongle will work on Win 7/8.1/10/11. Using actual LE Bluetooth on Windows means only having support for certain (but not all) versions of Windows 10 (MS never backported bluetooth to Win 7/8.1, and both OSes are now well past EOL support), and all versions of Windows 11. Since Lovense's user base is far larger than that of Buttplug's, and with far more variation in user hardware and experience, this ended up working best for their engineering and support.
-
-But if you're the kind of nerd that reads this whole section and understood it, just use fucking Bluetooth, ok?
+As for a signalling server, this is something we're looking at via something like WebRTC or iroh. The last thing I want to do in 2026 is run an online service for matching people to their sex toys, but we may figure out a way to use open public relays or something as well as letting people host their own.
 
 :::
+
+#### Repeater Mode
+
+Repeater mode is for games/apps that run on desktop but don't have a way to access Intiface Central on your phone directly. You can run Intiface Central on your desktop, and have it send/receive commands on Intiface Central on your phone. For more info, [see the Repeater Panel portion of this documentation](../ui/app-modes-repeater-panel.md). 
 
 ## I get a "rx endpoint not found" error with Lovense Toys
 
@@ -52,71 +63,6 @@ This can be one of a few things:
 - You are trying to connect to a Lovense Toy with both Bluetooth and Lovense Dongle support turned on, and your computer has both available. This will cause Bluetooth and the Lovense Dongle to race each other to connect to devices and can cause errors. We recommend either unselecting the "Lovense HID/Serial Dongle" support in Intiface Desktop, or else unplugging the Lovense Dongle completely.
 - You are using a Bluetooth 5.0 dongle on Windows 10. Windows 10 unfortunately has really bad default drivers for Bluetooth 5.0 at the moment, which causes a lot of issues, including this "rx endpoint not found" issue. [We recommend using a Bluetooth 4.0 dongle like the one linked here.](../hardware/bluetooth)
 - You have paired your Lovense toy using the operating system bluetooth dialog (this usually happens on Windows). Make sure the toy is not paired to the operating system, Buttplug/Intiface will handle finding and connecting to the toy without it being paired.
-
-## I can't get Intiface/Buttplug to find Lovense Connect devices
-
-Unfortunately, the way Lovense Connect works may not work with many default network setups. Below are a few random suggestions to try if you can't get Intiface or Buttplug based programs to connect to Lovense Connect.
-
-### Make sure Lovense Connect is activated in Intiface/Buttplug
-
-Lovense Connect is **not on by default in Intiface or Buttplug**. Since usage of Lovense Connect requires contacting Lovense's servers for setup, it's considered opt-in, not opt-out. Make sure you've turned on the Lovense Connect Service in Intiface Desktop if you're using that. If you're using a program that integrates Buttplug without using Intiface, you may need to contact the developer directly to ask about htis.
-
-### Make sure your Desktop/Laptop is getting the right info
-
-If:
-
-- Your phone is on
-- You have Lovense Connect up
-- Your toy is connected to Lovense Connect
-
-You should be able to go to [https://api.lovense.com/api/lan/getToys](https://api.lovense.com/api/lan/getToys) and see something like
-
-```json
-{"192-168-1-2.lovense.club":{"deviceId":"connect_a9785218975ba98bd78398712","domain":"192-168-1-2.lovense.club","httpPort":20010,"wsPort":20010,"httpsPort":30010,"wssPort":30010,"toyJson":"{}","platform":"ios","appVersion":"2.6.3","toys":{}}}
-```
-
-If all you see is
-
-```json
-{}
-```
-
-This means that your phone and laptop/desktop can't identify each other. If this is the case, continue on to the next steps.
-
-### Make sure you're using a DNS server that is compatible
-
-If you're using a default setup wifi in a cable modem, the problem may be that your ISP/cable company/etc's DNS server doesn't work with Lovense Connect. Try changing the DNS server to 1.1.1.1 (Cloudflare) or 8.8.8.8 (Google). Both of these are public DNS servers known to work with Lovense Connect.
-
-### Make sure you're not on IPv6
-
-Lovense Connect does not work with IPv6 networks. You'll need to make sure you're on IPv4.
-
-### If this still doesn't help and/or you aren't good at networking
-
-This section is an in-depth explanation of how Lovense Connect works. Hand this to your local networking expert and/or grown-up (these two things may not always overlap)
-
-:::info Lovense Connect Explanation for Nerds
-
-Hello nerd. Prepare to sigh and be tired.
-
-First off, how Lovense Connect works: Lovense Connect hosts two types of services off its mobile app: HTTP and Websockets. Whenever a Lovense Connect app is queried, it will hand back 4 ports to connect to: HTTP, HTTPS, WS, and WSS. For simplicity sake, Buttplug will always use HTTP. Once connected, apps talk a special JSON based protocol over whichever port was chosen.
-
-Lovense Connect uses a very weird setup for what is basically NAT punching, since robust local discovery still isn't a thing in the year of our lord 2022. When a phone starts the Lovense Connect app, it registers itself with Lovense's servers. Other systems on the same network _should_ be able to see the phone via the [Lovense API endpoint](https://api.lovense.com/api/lan/getToys) mentioned above. However, ONLY systems that Lovense thinks are on the same network can see this. Lovense handles this by basically trying to guess whether queries are coming from the same IP. This is why IPv6 won't work, because Lovense can't reason correctly about NAT for that.
-
-Issues with Lovense Connect not working usually involve:
-
-- Wifi and Wired networks being on different subnets
-- Wifi and Wired networks being misconfigured internally
-
-So those are two things to check.
-
-Note that this next part *should* be bypassed by Buttplug, but it's good to know just in case:
-
-DNS issues usually arise because Lovense does some EXTREMELY sketchy shit with domains and certificates. As the Lovense Connect API needs to be usable from web browsers (so people can build webpages that control toys through Lovense Connect), and possibly from HTTPS sites in web browsers, Lovense Connect has to host a secure site on the user's phone. To do this, Lovense uses the local lovense.club domain. The Lovense Connect app is distributed with a private certificate wildcarded for the lovense.club domain, and local IPs are bounced through the domain's DNS. So for instance, if your desktop is 192.168.1.2 and your mobile phone is 192.168.1.3, querying the API endpoint will tell your desktop to connect to 192-168-1-3.lovense.club. Your desktop can then make an HTTPS request to 192-168-1-3.lovense.club, which then routes to your phone, but your phone will return the wildcarded lovense.club cert.
-
-Buttplug gets around this by only using HTTP (since we're not really planning on doing this from a browser) and parsing the IP out of the lovense.club URL handed to us by the Buttplug API. Therefore, DNS *shouldn't* be an issue, but there's always the chance we missed something. If you find that we did, please contact us via the methods on the front page of the FAQ.
-
-:::
 
 ## I renamed my Lovense Toy in the Lovense app and now Intiface Central can't find it
 
@@ -131,3 +77,34 @@ We hope in a future update to fix this situation and change how we detect Lovens
 - Choose "Toy name"
 - Choose "Leave blank"
 - Hit "save"
+
+## I'm a nerd that wants to know about the Lovense Dongle even though you don't support it anymore
+
+The Lovense Dongle is just a Nordic nrf52840 acting as a BLE to UART or HID bridge, depending on which version of the dongle you have. Older Lovense Dongles (earlier than 2018 or so) have a black circuit board which can be seen under the USB connector side, and work as a BLE to UART/Serial converter. Newer Lovense Dongles have a white circuit board and work as a BLE to HID converter.
+
+Due to these dongles relaying over 2 communication mediums and having to run through an extra ARM processor to translate commands, they tend to be slower than just hooking up a regular old Bluetooth LE radio to your computer. This is why they seem laggy. Also, due to the firmware on the nrf52840, only 2 toys can be connected to a Lovense dongle simultaneously (and for Buttplug, we  only supported 1 toy).
+
+The reason that Lovense put the dongle out is that both Serial and HID are handled by operating systems in fairly standard ways, meaning the same code for the dongle will work on Win 7/8.1/10/11. Using actual LE Bluetooth on Windows means only having support for certain (but not all) versions of Windows 10 (MS never backported bluetooth to Win 7/8.1, and both OSes are now well past EOL support), and all versions of Windows 11. Since Lovense's user base is far larger than that of Buttplug's, and with far more variation in user hardware and experience, this ended up working best for their engineering and support.
+
+But if you're the kind of nerd that reads this whole section and understood it, just use fucking Bluetooth, ok?
+
+## I'm possibly the same nerd that read the last question and also want to know how Lovense Connect works
+
+First off, how Lovense Connect works: Lovense Connect hosts two types of services off its mobile app: HTTP and Websockets. Whenever a Lovense Connect app is queried, it will hand back 4 ports to connect to: HTTP, HTTPS, WS, and WSS. For simplicity sake, Buttplug will always use HTTP. Once connected, apps talk a special JSON based protocol over whichever port was chosen.
+
+Lovense Connect uses a very weird setup for what is basically NAT punching, since robust local discovery still isn't a thing in the year of our lord 2026. When a phone starts the Lovense Connect app, it registers itself with Lovense's servers. Other systems on the same network _should_ be able to see the phone via the [Lovense API endpoint](https://api.lovense.com/api/lan/getToys) mentioned above. However, ONLY systems that Lovense thinks are on the same network can see this. Lovense handles this by basically trying to guess whether queries are coming from the same IP. This is why IPv6 won't work, because Lovense can't reason correctly about NAT for that.
+
+Issues with Lovense Connect not working usually involve:
+
+- Wifi and Wired networks being on different subnets
+- Wifi and Wired networks being misconfigured internally
+
+So those are two things to check.
+
+Note that this next part *should* be bypassed by Buttplug, but it's good to know just in case:
+
+DNS issues usually arise because Lovense does some EXTREMELY sketchy shit with domains and certificates. As the Lovense Connect API needs to be usable from web browsers (so people can build webpages that control toys through Lovense Connect), and possibly from HTTPS sites in web browsers, Lovense Connect has to host a secure site on the user's phone. To do this, Lovense uses the local lovense.club domain. The Lovense Connect app is distributed with a private certificate wildcarded for the lovense.club domain, and local IPs are bounced through the domain's DNS. So for instance, if your desktop is 192.168.1.2 and your mobile phone is 192.168.1.3, querying the API endpoint will tell your desktop to connect to 192-168-1-3.lovense.club. Your desktop can then make an HTTPS request to 192-168-1-3.lovense.club, which then routes to your phone, but your phone will return the wildcarded lovense.club cert.
+
+Buttplug got around this by only using HTTP (since we're not really planning on doing this from a browser) and parsing the IP out of the lovense.club URL handed to us by the Buttplug API. Therefore, DNS *shouldn't* be an issue, but there's always the chance we missed something.
+
+But who cares, we've kicked it out of the library and it's not our problem anymore.
