@@ -12,7 +12,7 @@ const IC_DOWNLOAD_TEMPLATES = {
   macos: (repo, rawTag, cleanTag) =>
     `https://github.com/${repo}/releases/download/${rawTag}/intiface-central-${cleanTag}-macos-universal.dmg`,
   linux: (repo, rawTag, cleanTag) =>
-    `https://github.com/${repo}/releases/download/${rawTag}/intiface-central_${cleanTag}-linux-ubuntu-24.04-x64.zip`,
+    `https://github.com/${repo}/releases/download/${rawTag}/intiface-central-${cleanTag}-linux-ubuntu-24.04-x64.zip`,
   androidApk: (repo, rawTag, cleanTag) =>
     `https://github.com/${repo}/releases/download/${rawTag}/intiface-central-${cleanTag}-android-arm-universal.apk`,
 };
