@@ -173,7 +173,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       matomo: {
-        matomoUrl: "https://nonpolynomial.matomo.cloud/",
+        matomoUrl: "https://metrics.nonpolynomial.com/",
         siteId: "3",
         phpLoader: "matomo.php",
         jsLoader: "matomo.js",
