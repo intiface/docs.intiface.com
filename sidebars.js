@@ -14,58 +14,54 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   intifaceCentralSidebar: [
-    'intiface-central/index',
-    'intiface-central/getting-help',
-    'intiface-central/quickstart',
-    'intiface-central/ui/app-modes-repeater-panel',
-    /*
+    "intiface-central/index",
+    "intiface-central/getting-help",
+    "intiface-central/quickstart",
     {
-      type: 'category',
-      label: 'Getting Around Intiface Central',
+      type: "category",
+      label: "Getting Around Intiface Central",
       items: [
-        'intiface-central/ui/intro',
-        'intiface-central/ui/app-modes-engine-control-panel',
-        'intiface-central/ui/app-modes-repeater-panel',
-        'intiface-central/ui/devices-panel', 
-        'intiface-central/ui/log-panel', 
-        'intiface-central/ui/settings-panel', 
-        'intiface-central/ui/other-panels'
+        "intiface-central/ui/intro",
+        "intiface-central/ui/app-modes",
+        "intiface-central/ui/app-modes-engine-control-panel",
+        "intiface-central/ui/app-modes-repeater-panel",
+        "intiface-central/ui/devices-panel",
+        "intiface-central/ui/log-panel",
+        "intiface-central/ui/settings-panel",
+        "intiface-central/ui/other-panels",
       ],
     },
-    */
     {
-      type: 'category',
-      label: 'Hardware Help',
+      type: "category",
+      label: "Hardware Help",
       items: [
-        'intiface-central/hardware/intro', 
-        'intiface-central/hardware/bluetooth', 
+        "intiface-central/hardware/intro",
+        "intiface-central/hardware/bluetooth",
         /*
-        'intiface-central/hardware/xinput', 
-        'intiface-central/hardware/lovense-dongle', 
-        'intiface-central/hardware/lovense-connect', 
+        'intiface-central/hardware/xinput',
+        'intiface-central/hardware/lovense-dongle',
+        'intiface-central/hardware/lovense-connect',
         'intiface-central/hardware/serial-port',
         'intiface-central/hardware/websocket-device'
         */
       ],
     },
     {
-      type: 'category',
-      label: 'Specific Toy Brand Help',
+      type: "category",
+      label: "Specific Toy Brand Help",
       items: [
-        'intiface-central/brands/intro', 
-        'intiface-central/brands/kiiroo', 
-        'intiface-central/brands/lovense',
-        'intiface-central/brands/muse', 
-        'intiface-central/brands/satisfyer', 
-        'intiface-central/brands/thehandy',
-        'intiface-central/brands/wevibe',
+        "intiface-central/brands/intro",
+        "intiface-central/brands/kiiroo",
+        "intiface-central/brands/lovense",
+        "intiface-central/brands/muse",
+        "intiface-central/brands/satisfyer",
+        "intiface-central/brands/thehandy",
+        "intiface-central/brands/wevibe",
       ],
     },
-    'intiface-central/troubleshooting'
+    "intiface-central/troubleshooting",
   ],
-  intifaceGameHapticsRouterSidebar: [
-    'intiface-game-haptics-router/index'
-  ]
+  intifaceGameHapticsRouterSidebar: ["intiface-game-haptics-router/index"],
 };
 
 module.exports = sidebars;

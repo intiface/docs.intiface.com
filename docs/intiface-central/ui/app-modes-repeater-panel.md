@@ -1,4 +1,18 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # App Modes - Repeater Panel
+
+<Tabs>
+  <TabItem value="desktop" label="Desktop" default>
+    ![Intiface Central Desktop App Modes Repeater Tab](screenshots/desktop-app-modes-repeater-window-callouts.png)
+  </TabItem>
+  <TabItem value="mobile" label="Mobile">
+    ![Intiface Central Mobile App Modes Repeater Tab](screenshots/mobile-app-modes-repeater-window-callouts.png)
+  </TabItem>
+</Tabs>
+
+## Overview
 
 Full instructions will be added soon, but for now, here's a quick overview of how Repeater Mode works.
 - Start Intiface Central on your phone
@@ -9,3 +23,10 @@ Full instructions will be added soon, but for now, here's a quick overview of ho
 - Start repeater on Intiface Central desktop
 - For the app you are trying to use on desktop, connect to 127.0.0.1:12345 as normal
 - The connection should then forward to your phone
+
+## Settings
+
+| Setting | Control | Default | Availability / notes |
+|---|---:|---:|---|
+| Repeater Port | Numeric entry | `12345` | Disabled while engine is running; valid range `1025`-`65535` |
+| Remote Server Address | Text entry | `192.168.1.1:12345` | Disabled while engine is running |
