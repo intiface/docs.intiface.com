@@ -22,6 +22,7 @@ const sidebars = {
       label: "Getting Around Intiface Central",
       items: [
         "intiface-central/ui/intro",
+        "intiface-central/ui/engine-control-panel",
         {
           type: "category",
           label: "App Modes",
@@ -31,26 +32,26 @@ const sidebars = {
             "intiface-central/ui/app-modes-repeater-panel",
           ],
         },
-        "intiface-central/ui/devices-panel",
         {
           type: "category",
-          label: "Device Configuration",
+          label: "Devices",
           items: [
+            "intiface-central/ui/devices-panel",
             "intiface-central/ui/devices-panel-device-info",
             "intiface-central/ui/devices-panel-device-configuration",
             "intiface-central/ui/devices-panel-device-feature-configuration",
             "intiface-central/ui/devices-panel-device-observability",
-          ],
-        },
-        {
-          type: "category",
-          label: "Advanced Device Management",
-          items: [
-            "intiface-central/ui/devices-panel-advanced",
-            "intiface-central/ui/devices-panel-advanced-entry",
-            "intiface-central/ui/devices-panel-advanced-websocket",
-            "intiface-central/ui/devices-panel-advanced-simulated",
-            "intiface-central/ui/devices-panel-advanced-serial",
+            {
+              type: "category",
+              label: "Advanced Device Management",
+              items: [
+                "intiface-central/ui/devices-panel-advanced",
+                "intiface-central/ui/devices-panel-advanced-entry",
+                "intiface-central/ui/devices-panel-advanced-websocket",
+                "intiface-central/ui/devices-panel-advanced-simulated",
+                "intiface-central/ui/devices-panel-advanced-serial",
+              ],
+            },
           ],
         },
         "intiface-central/ui/log-panel",
