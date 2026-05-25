@@ -1,7 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# App Modes Panel - Repeater Tab
+# Repeater Mode Settings Panel
 
 <Tabs>
   <TabItem value="desktop" label="Desktop" default>

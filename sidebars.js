@@ -22,10 +22,37 @@ const sidebars = {
       label: "Getting Around Intiface Central",
       items: [
         "intiface-central/ui/intro",
-        "intiface-central/ui/app-modes",
-        "intiface-central/ui/app-modes-engine-control-panel",
-        "intiface-central/ui/app-modes-repeater-panel",
+        {
+          type: "category",
+          label: "App Modes",
+          items: [
+            "intiface-central/ui/app-modes",
+            "intiface-central/ui/app-modes-engine-control-panel",
+            "intiface-central/ui/app-modes-repeater-panel",
+          ],
+        },
         "intiface-central/ui/devices-panel",
+        {
+          type: "category",
+          label: "Device Configuration",
+          items: [
+            "intiface-central/ui/devices-panel-device-info",
+            "intiface-central/ui/devices-panel-device-configuration",
+            "intiface-central/ui/devices-panel-device-feature-configuration",
+            "intiface-central/ui/devices-panel-device-observability",
+          ],
+        },
+        {
+          type: "category",
+          label: "Advanced Device Management",
+          items: [
+            "intiface-central/ui/devices-panel-advanced",
+            "intiface-central/ui/devices-panel-advanced-entry",
+            "intiface-central/ui/devices-panel-advanced-websocket",
+            "intiface-central/ui/devices-panel-advanced-simulated",
+            "intiface-central/ui/devices-panel-advanced-serial",
+          ],
+        },
         "intiface-central/ui/log-panel",
         "intiface-central/ui/settings-panel",
         "intiface-central/ui/other-panels",
