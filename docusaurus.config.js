@@ -13,14 +13,16 @@ const config = {
     "Because we couldn't call it Buttplug and still get it in app stores",
   favicon: "img/intiface_central_icon.svg",
 
-  // Set the production url of your site here
-  url: "https://docs.intiface.com",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: "https://intiface.com",
   baseUrl: "/",
+  trailingSlash: true,
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -54,9 +56,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
         },
-        blog: {
-          showReadingTime: true,
-        },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -118,7 +118,7 @@ const config = {
               },
               {
                 label: "Buttplug.io Developer Docs",
-                to: "https://docs.buttplug.io",
+                to: "https://buttplug.io/docs/dev-guide/",
               },
             ],
           },

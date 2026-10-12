@@ -28,7 +28,7 @@ At this point, Windows 10/11 have decent bluetooth support, and anyone who is on
 
 ### Bluetooth Dongle
 
-As with most of our toy support, we recommend using a regular Bluetooth LE Dongle with Lovense toys. The specific dongle we recommend is in the [Bluetooth section of this FAQ](../hardware/bluetooth). Bluetooth Dongles are the most reliable and usually least laggy way to access toys.
+As with most of our toy support, we recommend using a regular Bluetooth LE Dongle with Lovense toys. The specific dongle we recommend is in the [Bluetooth section of this FAQ](../hardware/bluetooth.mdx). Bluetooth Dongles are the most reliable and usually least laggy way to access toys.
 
 While the Lovense website says that the Lovense Dongle is required to use for Lovense Toys on desktops, this is only true for applications made by Lovense. Buttplug can use regular Bluetooth 4/5 dongles to communicate with Lovense toys (mostly) without issues.
 
@@ -65,7 +65,7 @@ Repeater mode is for games/apps that run on desktop but don't have a way to acce
 This can be one of a few things:
 
 - You are trying to connect to a Lovense Toy with both Bluetooth and Lovense Dongle support turned on, and your computer has both available. This will cause Bluetooth and the Lovense Dongle to race each other to connect to devices and can cause errors. We recommend either unselecting the "Lovense HID/Serial Dongle" support in Intiface Desktop, or else unplugging the Lovense Dongle completely.
-- You are using a Bluetooth 5.0 dongle on Windows 10. Windows 10 unfortunately has really bad default drivers for Bluetooth 5.0 at the moment, which causes a lot of issues, including this "rx endpoint not found" issue. [We recommend using a Bluetooth 4.0 dongle like the one linked here.](../hardware/bluetooth)
+- You are using a Bluetooth 5.0 dongle on Windows 10. Windows 10 unfortunately has really bad default drivers for Bluetooth 5.0 at the moment, which causes a lot of issues, including this "rx endpoint not found" issue. [We recommend using a Bluetooth 4.0 dongle like the one linked here.](../hardware/bluetooth.mdx)
 - You have paired your Lovense toy using the operating system bluetooth dialog (this usually happens on Windows). Make sure the toy is not paired to the operating system, Buttplug/Intiface will handle finding and connecting to the toy without it being paired.
 
 ## I renamed my Lovense Toy in the Lovense app and now Intiface Central can't find it
